@@ -19,6 +19,10 @@ ped_exposure_time = 0.7;
 % Available distance during pedestrian exposure
 available_dist = speeds_fps .* ped_exposure_time;
 
+% add distance travelled during perception reaction phase
+available_dist = available_dist + (speeds_fps .* PRT);
+
+
 %% =============================
 % CALCULATIONS
 %% =============================
