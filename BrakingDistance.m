@@ -7,7 +7,7 @@ speeds_mph = [35 45 55];
 
 speeds_fps = speeds_mph * 1.467;
 
-PRT = 2.4;                    % perception-reaction time (sec)
+
 friction = [0.80 0.70 0.60];  % BEST -> WORST
 g = 32.2;                     % gravity (ft/s^2)
 
