@@ -7,20 +7,19 @@ speeds_mph = [35 45 55];
 
 speeds_fps = speeds_mph * 1.467;
 
+total_exposure_time = 3.1;    % Total exposure time 
 PRT = 2.4;                    % perception-reaction time (sec)
 friction = [0.80 0.70 0.60];  % BEST -> WORST
 g = 32.2;                     % gravity (ft/s^2)
 
 % Pedestrian exposure time (sec)
-ped_exposure_time = 0.7;
+ped_exposure_time = total_exposure_time - PRT;
 
 
+% Total Available distance during pedestrian exposure
+available_dist = speeds_fps .* total_exposure_time;
 
-% Available distance during pedestrian exposure
-available_dist = speeds_fps .* ped_exposure_time;
 
-% add distance travelled during perception reaction phase
-available_dist = available_dist + (speeds_fps .* PRT);
 
 
 %% =============================
@@ -95,7 +94,7 @@ xlabel('Distance (ft)', ...
 ylabel('Vehicle Speed (mph)', ...
     'FontSize',12,'FontWeight','bold');
 
-title(sprintf('Total Braking Distance'), ...
+title(sprintf('Total Stopping Distance'), ...
     'FontSize',13,'FontWeight','bold');
 
 grid on;
